@@ -1,0 +1,97 @@
+html,
+body {
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.myFont {
+    font-style: oblique;
+    font-weight: 800;
+}
+
+/* Welcome to Movieblog*/
+.myFont .welcome{
+    /*border-color: #000000;*/
+    text-align: center;
+    -webkit-text-stroke: 2px rgb(164, 106, 8);
+    font-size: 60pt;
+    margin-top: 20px;
+    color: white;
+}
+
+
+/* Auth block */
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding-top: 155px;
+    margin: auto;
+    font-size: 14pt;
+    -webkit-text-stroke: 0.05mm rgb(169, 6, 6);
+}
+
+.form-signin .input_box{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-right: 15px;
+}
+
+.form-signin .input_box .input{
+    flex-grow: 100;
+    padding: 5px;
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+}
+
+.form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    /*font-size: 16px;*/
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Buttons */
+.myButton {
+    box-shadow: 0 1px 0 0 #fff6af;
+    background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    background-color:#ffec64;
+    border-radius:13px;
+    border:3px solid #ffaa22;
+    display:inline-block;
+    cursor:pointer;
+    color:#333333;
+    font-size:20px;
+    font-weight:bold;
+    padding:9px 31px;
+    text-decoration:none;
+    text-shadow:0 1px 0 #ffee66;
+}
+.myButton:hover {
+    background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+    background-color:#ffab23;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
