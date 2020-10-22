@@ -87,7 +87,5 @@ fabric.properties
 .gitignore
 .idea/workspace.xml
 MainPage.html
-first_lab/js/
-frontend/
 node_modules/
 /node_modules/
