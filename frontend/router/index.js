@@ -1,11 +1,23 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from 'vue-router'
+import Home from '../views/Home'
+import Content from "../views/Content";
 
-Vue.use(VueRouter)
+Vue.use(Router)
 
-const routes = [
-    {
-        path: '/',
+export default new Router({
+    mode: 'history',
+    routes: [
+        {
+            path: '/',
+            name: 'Home',
+            component: Home
+        },
+        {
+            path: '/film/:url',
+            name: 'Content',
+            component: Content
+        }
+    ]
+})
 
-    }
-]

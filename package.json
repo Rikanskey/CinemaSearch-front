@@ -1,0 +1,10 @@
+{
+  "name": "CinemaSearch-front",
+  "version": "1.0.0",
+  "dependencies": {
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "vue-router": "^3.4.8"
+  }
+}
