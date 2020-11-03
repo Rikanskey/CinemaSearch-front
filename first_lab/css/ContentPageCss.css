@@ -342,15 +342,15 @@ p{
 }
 
 .styles_defaultIcon__star {
-    background-image: url("../../frontend/assets/Empty_star.png");
+    background-image: url("../../frontend/src/assets/Empty_star.png");
 }
 
 .styles_filledIcon__star{
-    background-image: url("../../frontend/assets/Full_star.png");
+    background-image: url("../../frontend/src/assets/Full_star.png");
 }
 
 .styles_hoveredIcon__star {
-    background-image: url("../../frontend/assets/Hovered_star.png");
+    background-image: url("../../frontend/src/assets/Hovered_star.png");
 }
 
 .styles_root__star_container:after {

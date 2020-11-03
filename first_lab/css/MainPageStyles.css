@@ -1,5 +1,5 @@
 html, body {
-    background: url("../../frontend/assets/check.jpg");
+    background: url("../../frontend/src/assets/check.jpg");
     backdrop-filter: blur(2px);
 }
 
