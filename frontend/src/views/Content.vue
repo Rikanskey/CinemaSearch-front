@@ -156,9 +156,15 @@
           <label class="styles_radio__star_container styles_root__star_container"  v-bind:key="index" v-for="index in 10" v-bind:data-value=index>
             <input type="radio" class="styles_input__disp" name="star" v-bind:value="index" v-on:click="send_mark(index)">
             <span class="styles_iconContainer__pos" @mouseover="over_star(index)" @mouseleave="out_star()">
-              <span v-if="index <= movie.rating && actual_mark === 0" class="styles_icon__marg styles_defaultIcon__star styles_baseIcon__star styles_filledIcon__star"></span>
-              <span v-else-if="index <= actual_mark" class="styles_icon__marg styles_defaultIcon__star styles_baseIcon__star styles_hoveredIcon__star"></span>
-              <span v-else class="styles_icon__marg styles_defaultIcon__star styles_baseIcon__star styles_defaultIcon__star"></span>
+              <span v-if="index <= movie.rating && actual_mark === 0" class="styles_icon__marg styles_defaultIcon__star styles_baseIcon__star styles_filledIcon__star">
+                <full_star></full_star>
+              </span>
+              <span v-else-if="index <= actual_mark" class="styles_icon__marg styles_defaultIcon__star styles_baseIcon__star styles_hoveredIcon__star">
+                <hovered_star></hovered_star>
+              </span>
+              <span v-else class="styles_icon__marg styles_defaultIcon__star styles_baseIcon__star styles_defaultIcon__star">
+                <empty_star></empty_star>
+              </span>
             </span>
           </label>
         </form>
@@ -178,8 +184,12 @@
 
 <script>
 import User from "../components/user/user";
+import Empty_star from "@/components/stars/Empty_star";
+import Full_star from "@/components/stars/Full_star";
+import Hovered_star from "@/components/stars/Hovered_star";
 export default {
   name: "Content",
+  components: {Hovered_star, Full_star, Empty_star},
   methods: {
     send_mark(mark){
       console.log('Отправлена оценка ' + mark)
@@ -196,6 +206,9 @@ export default {
   return{
       user: User,
       actual_mark: 0,
+      empty_star: "url('/src/assets/Empty_star.png')",
+      full_star: "url('/src/assets/Full_star.png')",
+      hovered_star: "url('/src/assets/Hovered_star.png')",
       movie: {
         name: 'TENET',
         poster: 'https://images-na.ssl-images-amazon.com/images/I/71W2aEcrxxL._AC_SL1334_.jpg',
@@ -290,319 +303,3 @@ export default {
   }
 }
 </script>
-
-<style>
-div {
-  display: block;
-}
-
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  line-height: normal;
-}
-
-.styles_root__main_container {
-  z-index: 1;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-  min-height: 100vh;
-  background: #f4f4f4;
-}
-
-.styles_contentContainer__main_props {
-  z-index: 2;
-  -webkit-box-flex: 1;
-  flex: 1 0 auto;
-  background: #fff;
-  width: 1280px;
-  margin: auto;
-}
-
-.styles_сontainer__props {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 960px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.styles_container__props_margin {
-  display: flex;
-  box-sizing: border-box;
-  margin-right: -10px;
-  margin-left: -10px;
-}
-
-.styles_posterColumn__width {
-  flex: 0 0 240px;
-  width: 240px;
-}
-
-.styles_column__el_position {
-  display: block;
-  box-sizing: border-box;
-  max-width: 100%;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.styles_poster__position {
-  display: flex;
-  -webkit-box-orient: vertical;
-  flex-direction: column;
-  flex: 1 1;
-  min-height: 624px;
-  padding: 40px 0 60px;
-}
-
-.styles_poster__pic_padding {
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.styles_pic__size {
-  display: block;
-  overflow: hidden;
-  width: 100%;
-  min-width: 100%;
-  min-height: 320px;
-  white-space: nowrap;
-  text-indent: 100%;
-  border-radius: 3px;
-  object-fit: cover;
-}
-
-.styles_pic__back {
-  background: hsla(0,0%,90.2%,.5);
-}
-
-.styles_info_container__pos {
-  -webkit-box-flex: 0;
-  flex: 0 0 600px;
-  width: 600px;
-}
-
-.styles_container_info__padding {
-  position: relative;
-  -webkit-box-orient: vertical;
-  flex-direction: column;
-  padding: 40px 0 60px;
-}
-
-.styles_title__pos {
-  margin-bottom: 32px;
-  padding-top: 15px;
-}
-
-.styles_title__margin {
-  margin-top: 0;
-  margin-bottom: 15px;
-}
-
-.styles_title__font {
-  font-family: Arial,Tahoma,Verdana,sans-serif;
-  font-size: 36px;
-  font-weight: 600;
-}
-
-.styles_title__color {
-  color: #1f1f1f;
-}
-
-.styles_info__pos{
-  flex: 0 0 440px;
-  width: 440px;
-}
-
-.styles_title_info__pos {
-  margin-bottom: 5px;
-}
-
-.styles_title_info__font_size {
-  font-size: 18px;
-}
-
-.styles_title_info__font_style {
-  margin-top: 0;
-  font-family: Arial,Tahoma,Verdana,sans-serif;
-  font-weight: 600;
-}
-
-.styles_rowInformation__color {
-  border-bottom-color: rgba(31,31,31,.1);
-}
-
-.styles_rowInformation__position {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid;
-}
-
-.styles_title__props {
-  width: 156px;
-  font-family: Arial,Tahoma,Verdana,sans-serif;
-  font-size: 13px;
-  color: rgba(31,31,31,.5);
-}
-
-.styles_value__props {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1 1;
-  padding-right: 2pt;
-  font-family: Arial,Tahoma,Verdana,sans-serif;
-  font-size: 13px;
-  color: #1f1f1f;
-}
-
-.styles_actors__pos{
-  -webkit-flex: 0 0 200px;
-  -ms-flex: 0 0 200px;
-  flex: 0 0 200px;
-  width: 200px;
-}
-
-.styles_actors__pad {
-  padding-top: 4px;
-  margin-bottom: 24px;
-}
-
-.styles_actors_title__margin {
-  margin-bottom: 15px;
-}
-
-.styles_actor_list__margin {
-  margin-top: 0;
-  margin-bottom: 12px;
-  padding-left: 0;
-}
-
-.styles_actor__props {
-  list-style: none;
-  line-height: 15px;
-}
-
-.styles_actor__props:not(:last-child) {
-  margin-bottom: 7px;
-}
-
-/* review */
-.styles_container__back {
-  background-color: #fff;
-}
-
-.styles_container__disp {
-  position: relative;
-  display: flex;
-  box-sizing: border-box;
-}
-
-.styles_synopsis__font {
-  font-family: Arial,Tahoma,Verdana,sans-serif;
-  font-size: 16px;
-  line-height: 1.38;
-  color: #393939;
-}
-
-p{
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0;
-  margin-inline-end: 0;
-}
-
-/* rating section */
-.styles_raiting_container__margin {
-  position: relative;
-}
-
-.styles_raiting__marg:not(:empty) {
-  margin-top: 32px;
-  margin-bottom: 32px;
-}
-
-.styles_form__disp {
-  display: flex;
-}
-
-.styles_radio__star_container {
-  -webkit-flex-shrink: 0;
-  flex-shrink: 0;
-}
-
-.styles_radio__star_container:first-of-type {
-  padding-left: 0;
-}
-
-.styles_root__star_container {
-  display: inline-flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-  -webkit-box-align: center;
-  align-items: center;
-  cursor: pointer;
-  border: 0;
-  background: 0 0;
-}
-
-.styles_input__disp {
-  display: none;
-}
-
-.styles_iconContainer__pos {
-  position: relative;
-}
-
-.styles_icon__marg {
-  margin: auto;
-}
-
-.styles_baseIcon__star {
-  display: block;
-  width: 32px;
-  height: 32px;
-  background-position: 0 0;
-  background-size: 32px 32px;
-}
-
-
-.styles_defaultIcon__star {
-  background-image: url("../assets/Empty_star.png");
-}
-
-.styles_filledIcon__star {
-  background-image: url("../assets/Full_star.png");
-}
-
-.styles_hoveredIcon__star {
-  background-image: url("../assets/Hovered_star.png");
-}
-
-.styles_root__star_container:after {
-  margin-top: 4px;
-  font-family: Arial,Tahoma,Verdana,sans-serif;
-  font-size: 13px;
-  content: attr(data-value);
-  color: rgba(0,0,0,.2);
-}
-
-.styles_trailerContainer__margin_align{
-  margin-left: 50px;
-  margin-bottom: 32px;
-}
-</style>
